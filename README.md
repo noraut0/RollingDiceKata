@@ -24,7 +24,11 @@ Aussi, les expressions régulières peuvent être une bonne idée...
   
 ## Setup
 
-  - Importer le projet dans IntelliJ Idea : File > New > Project from Version Control > Git > Rentrer l'url du dépôt
+  - Importer le projet forké dans IntelliJ Idea : File > New > Project from Version Control > Git > Rentrer l'url du dépôt 
+  - Clic droit sur le dossier java > Mark Directory as Root Source
+  - File > Project Structure > renseigner votre jdk et votre fichier de sortie <VOTRE_WORKING_DIR/out>
+  - Run > Edit Configuration > ajouter une Application > Renseigner votre jdk si ce n'est pas déjà fait
+  - Pour ajouter JUnit, la façon la plus simple est la suivante : allez dans le fichier java > test > RollTest > alt-Enter sur un @Test rouge > add JUnit to classpath
   - Implémenter la classe Roll
   - Jouer les tests dans java > RollTest
   - Pousser votre pull request sur le dépôt :  git push -u origin <VOTRE_NOM_ET_PRENOM>
