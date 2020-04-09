@@ -1,7 +1,5 @@
 # RollingDiceKata
 
-Ceci est un test, juste pour voir ! :D
-
 ## Description
 
 En tant que joueur de D&D, je souhaiterai pouvoir configurer un jet de dés en rentrant une chaîne simple de caractères.
