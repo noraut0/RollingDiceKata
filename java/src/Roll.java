@@ -11,6 +11,7 @@ public class Roll {
         DISADVANTAGE
     }
 
+    public int validFormula = 1;
     public int diceValues;
     public int nbRolls = 1;
     public int modifiers = 0;
@@ -19,27 +20,48 @@ public class Roll {
     // Attributes
 
     public Roll(String formula) {
-        int int_modifier = 0, int_nbRoll = 1, int_diceValue;
+        int int_modifier = 0, int_nbRoll = 1, int_diceValue = 6;
 
         int d = formula.indexOf("d");
 
-        if(formula.charAt(d) == 0){
+        if(d > 0){
 
-            String s_nbRoll = formula.substring(0,d);
-            int_nbRoll = Integer.parseInt(s_nbRoll);
+            int ascii_val = formula.charAt(0);
+            if( ascii_val > 48 && ascii_val < 58 ){
 
+                String s_nbRoll = formula.substring(0,d);
+                int_nbRoll = Integer.parseInt(s_nbRoll);
+
+            }else{
+                validFormula = 0;
+            }
+
+        }
+
+        int ascii_val = formula.charAt(d+1);
+        if( ascii_val > 48 && ascii_val < 58 ){
+
+            String s_diceValue = formula.substring(d+1,d+2);
+            int_diceValue = Integer.parseInt(s_diceValue);
+
+        }else{
+            validFormula = 0;
         }
 
 
 
-        String s_diceValue = formula.substring(d+1,d+2);
-        int_diceValue = Integer.parseInt(s_diceValue);
 
-        if( formula.substring(d + 2) == null) {
-            System.out.println(int_nbRoll);
+        if(  d + 2 < (formula.length() -1)  ) {
 
-            String s_modifier = formula.substring(d + 2);
-            int_modifier = Integer.parseInt(s_modifier);
+            if( (formula.charAt(d+2)) == '-' || (formula.charAt(d+2)) == '+'){
+
+                String s_modifier = formula.substring(d + 2);
+                int_modifier = Integer.parseInt(s_modifier);
+
+            }else{
+                validFormula= 0;
+
+            }
         }
 
         System.out.println(int_nbRoll);
@@ -64,14 +86,15 @@ public class Roll {
 
     public int makeRoll(RollType rollType) {
 
-
-        int i;
+        if(validFormula == 0){
+            return -1;
+        }
 
         if(nbRolls <= 0 || diceValues <= 0){
             return -1;
         }
 
-        for( i = 0 ; i < nbRolls ; i++){
+        for( int i = 0 ; i < nbRolls ; i++){
 
             int val1 = 0;
             int val2 = 0;
