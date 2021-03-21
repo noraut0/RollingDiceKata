@@ -28,7 +28,7 @@ public class Roll {
         int d = formula.indexOf("d");
         int add_less = (formula.indexOf("-") != -1 ? formula.indexOf("-") : formula.indexOf("+")  );
 
-        //testing nb roll <= 0 and if there is no character
+        //testing nb roll <= 0 and if there is no character else formula become invalid
         if(d > 0){
 
             if( IsNumeric(formula.substring(0,d)) ){
