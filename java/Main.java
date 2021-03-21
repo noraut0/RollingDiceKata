@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         RNG.setImpl(new RNGImpl());
 
-        Roll r_formula = new Roll("hhd6");
+        Roll r_formula = new Roll("272d778-4756");
         System.out.println(r_formula.makeRoll(Roll.RollType.NORMAL));
 
 
