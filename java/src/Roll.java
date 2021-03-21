@@ -26,7 +26,7 @@ public class Roll {
 
         //separators
         int d = formula.indexOf("d");
-        int add_less = (formula.indexOf("-") != -1 ? formula.indexOf("-") : formula.indexOf("+") != -1 ? formula.indexOf("+") : -1 );
+        int add_less = (formula.indexOf("-") != -1 ? formula.indexOf("-") : formula.indexOf("+")  );
 
         //testing nb roll <= 0 and if there is no character
         if(d > 0){
